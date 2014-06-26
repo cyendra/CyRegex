@@ -14,7 +14,7 @@ public:
 	void addInEdge(Edge* e);
 	void addOutEdge(Edge* e);
 	bool isFinalStatus();
-	void setFinalStatus();
+	void setFinalStatus(bool b);
 private:
 	std::vector<Edge*> InEdges;
 	std::vector<Edge*> OutEdges;
@@ -24,7 +24,8 @@ private:
 class Edge
 {
 public:
-	CharSet chr;
+	Edge();
+	CharSet MatchContent;
 	std::vector<Action> Actions;
 	Status* Start;
 	Status* End;
