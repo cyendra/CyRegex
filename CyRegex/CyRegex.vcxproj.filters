@@ -21,8 +21,23 @@
     <ClInclude Include="std.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="CharSet.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Action.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Main.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="CharSet.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Action.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
     <ClCompile Include="Node.cpp">
       <Filter>源文件</Filter>
     </ClCompile>

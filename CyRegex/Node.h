@@ -1,27 +1,24 @@
 #pragma once
 
 #include "std.h"
+#include "CharSet.h"
+#include "Action.h"
 
-class Node
+class Edge;
+class Status;
+
+class Status
 {
-public:
-	enum Type
-	{
-		empty, charset, action
-	};
-	Node();
-	Node(char c);
-	~Node();
-	Type getType();
-	char getChar();
-	int size();
-	std::vector<Node*>::iterator begin();
-	std::vector<Node*>::iterator end();
-	void removeChild();
-private:
-	std::vector<Node*> next;
-	Type type;
-	char chr;
-	int act;
+	std::vector<Edge*> InEdges;
+	std::vector<Edge*> OutEdges;
+	bool FinalStatus;
+};
+
+class Edge
+{
+	CharSet chr;
+	std::vector<Action> Actions;
+	Status* Start;
+	Status* End;
 };
 
