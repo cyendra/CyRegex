@@ -1,16 +1,19 @@
 #pragma once
 #include "std.h"
 #include "Node.h"
+#include "NodeManager.h"
 class Group
 {
 public:
 	Group();
 	Group(Status* st, Status* ed);
 	~Group();
-	void add(Group* g);
-	void readyToOr();
-	void or(Group* g);
-private:
+	void MakeCharSet(CharSet c);
+	void Series(Group* g);
+	void ReadyToParallel();
+	void Parallel(Group* g);
+	void Repeat(Group* g);
+	void Optional(Group* g);
 	Status* start;
 	Status* end;
 };

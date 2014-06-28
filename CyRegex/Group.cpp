@@ -3,6 +3,8 @@
 
 Group::Group()
 {
+	start = nullptr;
+	end = nullptr;
 }
 
 
@@ -16,17 +18,34 @@ Group::Group(Status* st, Status* ed)
 	end = ed;
 }
 
-void Group::add(Group* g)
+void Group::MakeCharSet(CharSet c)
+{
+	start = NodeManager::newStatus();
+	end = NodeManager::newFinalStatus();
+	NodeManager::addCharEdge(start, end, c);
+}
+
+void Group::Series(Group* g)
+{
+	NodeManager::addEdge(end, g->start);
+}
+
+void Group::ReadyToParallel()
 {
 
 }
 
-void Group::readyToOr()
+void Group::Parallel(Group* g)
 {
 
 }
 
-void Group::or(Group* g)
+void Group::Repeat(Group* g)
+{
+
+}
+
+void Group::Optional(Group* g)
 {
 
 }

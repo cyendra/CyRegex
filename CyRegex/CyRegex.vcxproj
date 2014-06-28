@@ -65,7 +65,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Action.h" />
-    <ClInclude Include="Manager.h" />
+    <ClInclude Include="NodeManager.h" />
     <ClInclude Include="CharSet.h" />
     <ClInclude Include="Group.h" />
     <ClInclude Include="Node.h" />
