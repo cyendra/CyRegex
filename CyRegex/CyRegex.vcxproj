@@ -66,12 +66,14 @@
   <ItemGroup>
     <ClInclude Include="Action.h" />
     <ClInclude Include="CharSet.h" />
+    <ClInclude Include="Group.h" />
     <ClInclude Include="Node.h" />
     <ClInclude Include="std.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Action.cpp" />
     <ClCompile Include="CharSet.cpp" />
+    <ClCompile Include="Group.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Node.cpp" />
   </ItemGroup>
