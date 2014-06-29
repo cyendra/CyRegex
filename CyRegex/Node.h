@@ -1,6 +1,5 @@
 #pragma once
 
-#include "std.h"
 #include "CharSet.h"
 #include "Action.h"
 

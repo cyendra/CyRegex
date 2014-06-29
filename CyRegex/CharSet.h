@@ -1,4 +1,5 @@
 #pragma once
+#include "std.h"
 class CharSet
 {
 public:
@@ -7,6 +8,7 @@ public:
 	~CharSet();
 	bool inSet(char c);
 	void setChar(char c);
+	char getText();
 private:
 	char chr;
 };

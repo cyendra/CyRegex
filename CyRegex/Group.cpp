@@ -20,43 +20,46 @@ Group::Group(Status* st, Status* ed)
 
 void Group::MakeCharSet(CharSet c)
 {
-	start = NodeManager::NewStatus();
-	end = NodeManager::NewFinalStatus();
-	NodeManager::AddCharEdge(start, end, c);
+	start = Manager::NewStatus();
+	end = Manager::NewFinalStatus();
+	Manager::AddCharEdge(start, end, c);
 }
 
 void Group::Series(Group* g)
 {
 	end->setFinalStatus(false);
-	NodeManager::AddEdge(end, g->start);
+	Manager::AddEdge(end, g->start);
+	end = g->end;
 }
 
 void Group::ReadyToParallel()
 {
-	Status* L = NodeManager::NewStatus();
-	Status* R = NodeManager::NewFinalStatus();
+	Status* L = Manager::NewStatus();
+	Status* R = Manager::NewFinalStatus();
 	end->setFinalStatus(false);
-	NodeManager::AddEdge(L, start);
-	NodeManager::AddEdge(end, R);
+	Manager::AddEdge(L, start);
+	Manager::AddEdge(end, R);
+	start = L;
+	end = R;
 }
 
 void Group::Parallel(Group* g)
 {
 	g->end->setFinalStatus(false);
-	NodeManager::AddEdge(start, g->start);
-	NodeManager::AddEdge(g->end, end);
+	Manager::AddEdge(start, g->start);
+	Manager::AddEdge(g->end, end);
 }
 
 void Group::Repeat(Group* g)
 {
 	g->end->setFinalStatus(false);
-	NodeManager::AddEdge(end, g->start);
-	NodeManager::AddEdge(g->end, end);
+	Manager::AddEdge(end, g->start);
+	Manager::AddEdge(g->end, end);
 }
 
 void Group::Optional(Group* g)
 {
 	end->setFinalStatus(false);
-	NodeManager::AddEdge(end, g->start);
-	NodeManager::AddEdge(g->start, g->end);
+	Manager::AddEdge(end, g->start);
+	Manager::AddEdge(g->start, g->end);
 }

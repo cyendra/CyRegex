@@ -1,7 +1,7 @@
 #pragma once
-#include "std.h"
-#include "Node.h"
-#include "NodeManager.h"
+
+#include "Manager.h"
+
 class Group
 {
 public:

@@ -24,3 +24,8 @@ void CharSet::setChar(char c)
 {
 	chr = c;
 }
+
+char CharSet::getText()
+{
+	return chr;
+}
