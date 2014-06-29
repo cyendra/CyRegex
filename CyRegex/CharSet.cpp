@@ -72,3 +72,8 @@ bool CharSet::isSp(char c)
 }
 
 CharSet CharSet::EndOfFile(-1);
+
+bool CharSet::isEof()
+{
+	return chr == -1;
+}

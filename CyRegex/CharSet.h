@@ -13,6 +13,7 @@ public:
 	char getText();
 	void removeSp();
 	static CharSet EndOfFile;
+	bool isEof();
 private:
 	char chr;
 	bool sp;

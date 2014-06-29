@@ -46,9 +46,18 @@ Group* Parser::expr()
 Group* Parser::add()
 {
 	Group* g = factor();
-	while (!look.isSp()||look.isSp('('))
+	if (look.isSp('*'))
 	{
-		if (!move()) break;
+		g->SelfRepeat();
+		move();
+	}
+	else if (look.isSp('?'))
+	{
+		g->SelfOptional();
+		move();
+	}
+	while (!look.isEof()&&(!look.isSp()||look.isSp('(')))
+	{
 		Group* p = factor();
 		if (look.isSp('*')) 
 		{
@@ -73,15 +82,18 @@ Group* Parser::factor()
 		move();
 		g = expr();
 		match(')');
-		return g;
 	}
 	else if (!look.isSp())
 	{
 		g = newGroup();
 		g->MakeCharSet(look);
+		move();
 	}
-	throw std::exception("bad factor");
-	
+	else
+	{
+		throw std::exception("bad factor");
+	}
+	return g;
 }
 
 

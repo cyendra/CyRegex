@@ -62,4 +62,20 @@ void Group::Optional(Group* g)
 	end->setFinalStatus(false);
 	Manager::AddEdge(end, g->start);
 	Manager::AddEdge(g->start, g->end);
+	end = g->end;
+}
+
+void Group::SelfRepeat()
+{
+	Status* p = Manager::NewFinalStatus();
+	end->setFinalStatus(false);
+	Manager::AddEdge(p, start);
+	Manager::AddEdge(end, p);
+	start = p;
+	end = p;
+}
+
+void Group::SelfOptional()
+{
+	Manager::AddEdge(start, end);
 }

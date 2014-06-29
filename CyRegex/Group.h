@@ -14,6 +14,8 @@ public:
 	void Parallel(Group* g);
 	void Repeat(Group* g);
 	void Optional(Group* g);
+	void SelfRepeat();
+	void SelfOptional();
 	Status* start;
 	Status* end;
 };
