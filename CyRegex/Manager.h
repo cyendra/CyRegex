@@ -38,5 +38,11 @@ public:
 
 	// ÏÔÊ¾Õû¸öÍ¼
 	static void showAll();
+
+	// É¾³ý¿Õ±ß
+	static void clearEmpty();
+
+	// É¾³ý×´Ì¬
+	static void clearNotEffect(Status* s);
 };
 

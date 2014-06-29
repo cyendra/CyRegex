@@ -5,7 +5,7 @@
 class Epsilon
 {
 public:
-	Epsilon();
+	Epsilon(Group* p);
 	~Epsilon();
 	void solve();
 private:
@@ -14,5 +14,6 @@ private:
 	Group* g;
 	void getClose();
 	void close(Status* p, Status* s);
+	void getEnd(Status* s);
 };
 

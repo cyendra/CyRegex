@@ -98,3 +98,43 @@ void Manager::showAll()
 		std::cout << (*it)->getIdx() << " Char: " << (*it)->MatchContent.getText() << ", Start: " << (*it)->Start->getIdx() << ", End:" << (*it)->End->getIdx() << std::endl;
 	}
 }
+
+void Manager::clearEmpty()
+{
+	std::vector<Edge*> pool;
+	for (auto it = edgePool.begin(); it != edgePool.end(); it++)
+	{
+		if ((*it)->isEmpty())
+		{
+			Edge* e = (*it);
+			delete e;
+		}
+		else
+		{
+			pool.push_back(*it);
+		}
+	}
+	edgePool = pool;
+}
+
+void Manager::clearNotEffect(Status* s)
+{
+	std::vector<Status*> pool;
+	for (auto it = statusPool.begin(); it != statusPool.end(); it++)
+	{
+		if ((*it)->isEffect())
+		{
+			pool.push_back(*it);
+		}
+		else if ((*it) == s)
+		{
+			pool.push_back(*it);
+		}
+		else
+		{
+			Status* s = (*it);
+			delete s;
+		}
+	}
+	statusPool = pool;
+}

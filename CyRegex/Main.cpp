@@ -1,13 +1,17 @@
 #include "std.h"
 #include "Group.h"
 #include "Parser.h"
+#include "Epsilon.h"
 
 int main()
 {
-	Parser p("((aa|bb)|((ab|ba)(aa|bb)*(ab|ba)))*");
-	p.Parse();
+	Parser p("(ab|cd)*");
+	Group* g = p.Parse();
 	Manager::showAll();
-
+	Epsilon eps(g);
+	Manager::clearNotEffect(g->start);
+	Manager::clearEmpty();
+	Manager::showAll();
 	getchar();
 	
 }
