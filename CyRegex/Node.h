@@ -17,11 +17,12 @@ public:
 	void setFinalStatus(bool b);
 	static int getStatusNumber();
 	int getIdx();
+	bool isEffect();
+	std::vector<Edge*> InEdges;
+	std::vector<Edge*> OutEdges;
 private:
 	static int StatusNumber;
 	int idx;
-	std::vector<Edge*> InEdges;
-	std::vector<Edge*> OutEdges;
 	bool FinalStatus;
 };
 
@@ -36,6 +37,7 @@ public:
 	Status* End;
 	static int getEdgeNumber();
 	int getIdx();
+	bool isEmpty();
 private:
 	int idx;
 	static int EdgeNumber;

@@ -14,6 +14,7 @@ public:
 	void removeSp();
 	static CharSet EndOfFile;
 	bool isEof();
+	bool isEmpty();
 private:
 	char chr;
 	bool sp;

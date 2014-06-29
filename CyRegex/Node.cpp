@@ -70,3 +70,20 @@ int Edge::getIdx()
 {
 	return idx;
 }
+
+bool Status::isEffect()
+{
+	for (auto it = InEdges.begin(); it != InEdges.end(); it++)
+	{
+		if ((*it)->isEmpty() == false)
+		{
+			return true;
+		}
+	}
+	return false;
+}
+
+bool Edge::isEmpty()
+{
+	return MatchContent.isEmpty();
+}

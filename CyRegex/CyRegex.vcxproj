@@ -65,6 +65,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Action.h" />
+    <ClInclude Include="Epsilon.h" />
     <ClInclude Include="Manager.h" />
     <ClInclude Include="CharSet.h" />
     <ClInclude Include="Group.h" />
@@ -75,6 +76,7 @@
   <ItemGroup>
     <ClCompile Include="Action.cpp" />
     <ClCompile Include="CharSet.cpp" />
+    <ClCompile Include="Epsilon.cpp" />
     <ClCompile Include="Group.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Manager.cpp" />

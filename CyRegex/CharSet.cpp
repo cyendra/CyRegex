@@ -77,3 +77,8 @@ bool CharSet::isEof()
 {
 	return chr == -1;
 }
+
+bool CharSet::isEmpty()
+{
+	return chr == 0;
+}
