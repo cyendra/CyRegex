@@ -7,43 +7,43 @@
 namespace NodeManager
 {
 	// 状态结点池
-	std::vector<Status*> StatusPool;
+	std::vector<Status*> statusPool;
 	
 	// 边结点池
-	std::vector<Edge*> EdgePool;
+	std::vector<Edge*> edgePool;
 	
 	//-------------------------------------------------------------------------
 	//		新建结点的 new 系列
 
 	// 创建一个新的空状态
-	Status* newStatus()
+	Status* NewStatus()
 	{
 		Status* p = new Status();
-		StatusPool.push_back(p);
+		statusPool.push_back(p);
 		return p;
 	}
 
 	// 创建一个新的终结状态
-	Status* newFinalStatus()
+	Status* NewFinalStatus()
 	{
 		Status* p = new Status(true);
-		StatusPool.push_back(p);
+		statusPool.push_back(p);
 		return p;
 	}
 
 	// 创建一个新的空边
-	Edge* newEmptyEdge()
+	Edge* NewEmptyEdge()
 	{
 		Edge* p = new Edge();
-		EdgePool.push_back(p);
+		edgePool.push_back(p);
 		return p;
 	}
 
 	// 创建一个新的字符集边
-	Edge* newCharEdge(CharSet c)
+	Edge* NewCharEdge(CharSet c)
 	{
 		Edge* p = new Edge(c);
-		EdgePool.push_back(p);
+		edgePool.push_back(p);
 		return p;
 	}
 
@@ -51,23 +51,23 @@ namespace NodeManager
 	// 添加边
 
 	// 添加一条边E连接状态S到T 
-	void addEdge(Status* S, Status* T, Edge* E)
+	void AddEdge(Status* S, Status* T, Edge* E)
 	{
 		S->addOutEdge(E);
 		T->addInEdge(E);
 	}
 
 	// 添加字符集c使得状态S跳转到状态T
-	void addCharEdge(Status* S, Status* T, CharSet c)
+	void AddCharEdge(Status* S, Status* T, CharSet c)
 	{
-		Edge* E = newCharEdge(c);
-		addEdge(S, T, E);
+		Edge* E = NewCharEdge(c);
+		AddEdge(S, T, E);
 	}
 
 	// 添加空边使得状态S跳转到状态T
-	void addEdge(Status* S, Status* T)
+	void AddEdge(Status* S, Status* T)
 	{
-		Edge* E = newEmptyEdge();
+		Edge* E = NewEmptyEdge();
 		S->addOutEdge(E);
 		T->addInEdge(E);
 	}
@@ -77,15 +77,30 @@ namespace NodeManager
 	// 清空NFA中所有的点与边
 	void clearAll()
 	{
-		for (auto it = StatusPool.begin(); it != StatusPool.end(); it++)
+		for (auto it = statusPool.begin(); it != statusPool.end(); it++)
 		{
 			delete (*it);
 		}
-		StatusPool.clear();
-		for (auto it = EdgePool.begin(); it != EdgePool.end(); it++)
+		statusPool.clear();
+		for (auto it = edgePool.begin(); it != edgePool.end(); it++)
 		{
 			delete (*it);
 		}
-		EdgePool.clear();
+		edgePool.clear();
+	}
+
+	// 显示整个图
+	void showAll()
+	{
+		std::cout << "***** Status *****" << std::endl;
+		for (auto it = statusPool.begin(); it != statusPool.end(); it++)
+		{
+			std::cout << (*it)->getIdx() << " " << (*it)->isFinalStatus() << std::endl;
+		}
+		std::cout << "***** Edge *****" << std::endl;
+		for (auto it = edgePool.begin(); it != edgePool.end(); it++)
+		{
+			std::cout << (*it)->getIdx() << " Start:" << (*it)->Start->getIdx()<< " End:" << (*it)->End->getIdx() << std::endl;
+		}
 	}
 }

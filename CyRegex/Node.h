@@ -16,7 +16,11 @@ public:
 	void addOutEdge(Edge* e);
 	bool isFinalStatus();
 	void setFinalStatus(bool b);
+	static int getStatusNumber();
+	int getIdx();
 private:
+	static int StatusNumber;
+	int idx;
 	std::vector<Edge*> InEdges;
 	std::vector<Edge*> OutEdges;
 	bool FinalStatus;
@@ -31,5 +35,10 @@ public:
 	std::vector<Action> Actions;
 	Status* Start;
 	Status* End;
+	static int getEdgeNumber();
+	int getIdx();
+private:
+	int idx;
+	static int EdgeNumber;
 };
 
