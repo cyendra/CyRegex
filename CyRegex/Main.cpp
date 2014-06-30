@@ -2,15 +2,18 @@
 #include "Group.h"
 #include "Parser.h"
 #include "Epsilon.h"
-
+#include "std.h"
 int main()
 {
 	Parser p("(ab|cd)*");
 	Group* g = p.Parse();
 	Manager::showAll();
 	Epsilon eps(g);
-	Manager::clearNotEffect(g->start);
-	Manager::clearEmpty();
+	eps.solve();
+	//Manager::clearNotEffect(g->start);
+	//Manager::clearEmpty();
+	Manager::showAll();
+	Manager::clearDel();
 	Manager::showAll();
 	getchar();
 	

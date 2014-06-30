@@ -44,5 +44,8 @@ public:
 
 	// 删除状态
 	static void clearNotEffect(Status* s);
+
+	// 清空删除的结点
+	static void clearDel();
 };
 

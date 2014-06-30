@@ -11,6 +11,7 @@ class Status
 public:
 	Status();
 	Status(bool fin);
+	~Status();
 	void addInEdge(Edge* e);
 	void addOutEdge(Edge* e);
 	bool isFinalStatus();
@@ -20,6 +21,9 @@ public:
 	bool isEffect();
 	std::vector<Edge*> InEdges;
 	std::vector<Edge*> OutEdges;
+	bool effect;
+	void clearNullEdge();
+	bool del;
 private:
 	static int StatusNumber;
 	int idx;
@@ -38,6 +42,7 @@ public:
 	static int getEdgeNumber();
 	int getIdx();
 	bool isEmpty();
+	bool del;
 private:
 	int idx;
 	static int EdgeNumber;

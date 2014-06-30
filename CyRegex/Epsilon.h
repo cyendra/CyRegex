@@ -8,12 +8,16 @@ public:
 	Epsilon(Group* p);
 	~Epsilon();
 	void solve();
-private:
 	std::vector<Status*> effectStatus;
+private:
 	void findEffect();
 	Group* g;
 	void getClose();
-	void close(Status* p, Status* s);
+	void close(bool vis[], Status* p, Status* s);
 	void getEnd(Status* s);
+	std::vector<std::pair<Status*, Status*>> ans;
+	std::vector<CharSet> vchr;
+	void dfs(Status* p, Status* u);
+	bool* vis;
 };
 

@@ -2,13 +2,31 @@
 
 Status::Status()
 {
+	effect = false;
 	FinalStatus = false;
 	idx = ++StatusNumber;
+	del = false;
 }
 Status::Status(bool fin)
 {
+	effect = false;
 	FinalStatus = fin;
 	idx = ++StatusNumber;
+	del = false;
+}
+
+Status::~Status()
+{
+	for (auto it = InEdges.begin(); it != InEdges.end(); it++)
+	{
+		(*it)->End = nullptr;
+		(*it)->del = true;
+	}
+	for (auto it = OutEdges.begin(); it != OutEdges.end(); it++)
+	{
+		(*it)->Start = nullptr;
+		(*it)->del = true;
+	}
 }
 
 void Status::addInEdge(Edge* e)
@@ -38,6 +56,7 @@ Edge::Edge()
 	Start = nullptr;
 	End = nullptr;
 	idx = ++EdgeNumber;
+	del = false;
 }
 
 Edge::Edge(CharSet c)
@@ -46,6 +65,7 @@ Edge::Edge(CharSet c)
 	End = nullptr;
 	MatchContent = c;
 	idx = ++EdgeNumber;
+	del = false;
 }
 
 int Status::StatusNumber = 0;
@@ -77,13 +97,29 @@ bool Status::isEffect()
 	{
 		if ((*it)->isEmpty() == false)
 		{
-			return true;
+			return effect = true;
 		}
 	}
-	return false;
+	return effect = false;
 }
 
 bool Edge::isEmpty()
 {
 	return MatchContent.isEmpty();
+}
+
+void Status::clearNullEdge()
+{
+	std::vector<Edge*> v;
+	for (int i = 0; i < (int)InEdges.size(); i++)
+	{
+		if (!InEdges[i]->del && InEdges[i]->Start != nullptr) v.push_back(InEdges[i]);
+	}
+	InEdges = v;
+	v.clear();
+	for (int i = 0; i < (int)OutEdges.size(); i++)
+	{
+		if (!OutEdges[i]->del && OutEdges[i]->End != nullptr) v.push_back(OutEdges[i]);
+	}
+	OutEdges = v;
 }

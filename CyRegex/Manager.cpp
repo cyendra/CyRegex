@@ -90,12 +90,23 @@ void Manager::showAll()
 	std::cout << "***** Status *****" << std::endl;
 	for (auto it = statusPool.begin(); it != statusPool.end(); it++)
 	{
-		std::cout << (*it)->getIdx() << " " << (*it)->isFinalStatus() << std::endl;
+		std::cout << (*it)->getIdx() << " " << (*it)->isFinalStatus() <<" del = " <<(*it)->del << std::endl;
+		std::cout << "InEdge:" << std::endl;
+		for (auto i = (*it)->InEdges.begin(); i != (*it)->InEdges.end(); i++)
+		{
+			std::cout << (*i)->Start->getIdx() << " " << (*i)->End->getIdx() << std::endl;
+		}
+		std::cout << "OutEdge:" << std::endl;
+		for (auto i = (*it)->OutEdges.begin(); i != (*it)->OutEdges.end(); i++)
+		{
+			std::cout << (*i)->Start->getIdx() << " " << (*i)->End->getIdx() << std::endl;
+		}
+		std::cout << "-----------" << std::endl;
 	}
 	std::cout << "***** Edge *****" << std::endl;
 	for (auto it = edgePool.begin(); it != edgePool.end(); it++)
 	{
-		std::cout << (*it)->getIdx() << " Char: " << (*it)->MatchContent.getText() << ", Start: " << (*it)->Start->getIdx() << ", End:" << (*it)->End->getIdx() << std::endl;
+		std::cout << (*it)->getIdx() << " Char: " << (*it)->MatchContent.getText() << ", Start: " << (*it)->Start->getIdx() << ", End:" << (*it)->End->getIdx() << " del = " << (*it)->del << std::endl;
 	}
 }
 
@@ -104,7 +115,7 @@ void Manager::clearEmpty()
 	std::vector<Edge*> pool;
 	for (auto it = edgePool.begin(); it != edgePool.end(); it++)
 	{
-		if ((*it)->isEmpty())
+		if ((*it)->isEmpty() || ((*it)->Start == nullptr || (*it)->End == nullptr))
 		{
 			Edge* e = (*it);
 			delete e;
@@ -122,7 +133,8 @@ void Manager::clearNotEffect(Status* s)
 	std::vector<Status*> pool;
 	for (auto it = statusPool.begin(); it != statusPool.end(); it++)
 	{
-		if ((*it)->isEffect())
+
+		if ((*it)->effect)
 		{
 			pool.push_back(*it);
 		}
@@ -133,8 +145,29 @@ void Manager::clearNotEffect(Status* s)
 		else
 		{
 			Status* s = (*it);
+			(*it)->~Status();
 			delete s;
 		}
 	}
 	statusPool = pool;
+}
+
+void Manager::clearDel()
+{
+	std::vector<Status*> pool;
+	for (auto it = statusPool.begin(); it != statusPool.end(); it++)
+	{
+		(*it)->clearNullEdge();
+		if (!(*it)->del) pool.push_back(*it);
+		else delete (*it);
+	}
+	statusPool = pool;
+
+	std::vector<Edge*> vct;
+	for (auto it = edgePool.begin(); it != edgePool.end(); it++)
+	{
+		if (!(*it)->del) vct.push_back(*it);
+		else delete (*it);
+	}
+	edgePool = vct;
 }
