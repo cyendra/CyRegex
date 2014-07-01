@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Action">
+    <Position X="10.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAQ=</HashCode>
+      <FileName>Action.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Epsilon">
+    <Position X="4.5" Y="5.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAIACIAAUAAgAEAQAAAAAAEAAASDAAIgIAAAACAAAA=</HashCode>
+      <FileName>Epsilon.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Manager">
+    <Position X="0.5" Y="5.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AgACAAkAoEAgAAAADAAAAAAAQAgABAAAAAAAAAAIgAA=</HashCode>
+      <FileName>Manager.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CharSet">
+    <Position X="0.5" Y="0.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AACAAAAgAAAAgEgAAAQACAAAAICQAAAAAAgBgAAAQAA=</HashCode>
+      <FileName>CharSet.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Group">
+    <Position X="6.5" Y="0.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAABAEAiAAAAAAAiAAAAAAAEACAAAAQAAAIAACAAAAM=</HashCode>
+      <FileName>Group.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Status">
+    <Position X="4.5" Y="0.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>CoAAKAAkAAAAAAAAAAAKgAACAAAAAAAoBAAAAAAARgA=</HashCode>
+      <FileName>Node.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Edge">
+    <Position X="2.5" Y="0.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>CgIAAAAEICAgAAAIAAAAgAAAAAAABAAAAAAAAAAAQgA=</HashCode>
+      <FileName>Node.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Parser">
+    <Position X="2.5" Y="5.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAEAEUAAQACAQACAAIAEAAAAAAAAAAAAAggCAAI=</HashCode>
+      <FileName>Parser.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DFA">
+    <Position X="10.5" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAgAAAAAAAAxAAAAAAAAAEAAAgAAAAIAAAA=</HashCode>
+      <FileName>DFA.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NfaToDfa">
+    <Position X="6.5" Y="5.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAUAAAAAAQAAgAAAEAAAACAAAIAAABAQAAAA=</HashCode>
+      <FileName>NfaToDfa.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DfaNode">
+    <Position X="8.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAEAABIAAAAAAAAAAAAAAAAAAAAAAABIAIAAgA=</HashCode>
+      <FileName>DfaNode.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DfaNodeManager">
+    <Position X="8.5" Y="5.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAgGgIAAAAAAACAAAAAAAAAAAAAAACAAAAAAA=</HashCode>
+      <FileName>DfaNodeManager.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Regex">
+    <Position X="12.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAABAAABAEAAAAwAAAEQAAAACAAAUIAAAAAACI=</HashCode>
+      <FileName>Regex.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Microsoft YaHei UI" Size="9" />
+</ClassDiagram>
