@@ -15,6 +15,10 @@ void Epsilon::ready(Group* p)
 	g = p;
 }
 
+void Epsilon::setManager(Manager* mana)
+{
+	manager = mana;
+}
 
 Epsilon::~Epsilon()
 {
@@ -28,13 +32,13 @@ void Epsilon::solve()
 	for (int i = 0; i < (int)ans.size(); i++)
 	{
 		//std::cout << ans[i].first->getIdx() << " " << ans[i].second->getIdx() << std::endl;
-		Manager::AddCharEdge(ans[i].first, ans[i].second, vchr[i]);
+		manager->AddCharEdge(ans[i].first, ans[i].second, vchr[i]);
 	}
 }
 
 void Epsilon::findEffect()
 {
-	for (auto it = Manager::statusPool.begin(); it != Manager::statusPool.end(); it++)
+	for (auto it = manager->statusPool.begin(); it != manager->statusPool.end(); it++)
 	{
 		if ((*it)->isEffect() || (*it)==g->start)
 		{
@@ -51,7 +55,7 @@ void Epsilon::getClose()
 {
 	ans.clear();
 	vchr.clear();
-	int n = Manager::statusPool.size();
+	int n = manager->statusPool.size();
 	vis = new bool[n+1];
 	//std::cout << n << " = n " << std::endl;
 	for (auto it = effectStatus.begin(); it != effectStatus.end(); it++)
@@ -133,4 +137,10 @@ void Epsilon::dfs(Status* p, Status* u)
 			vchr.push_back((*it)->MatchContent);
 		}
 	}
+}
+
+void Epsilon::clearAll()
+{
+	ans.clear();
+	vchr.clear();
 }

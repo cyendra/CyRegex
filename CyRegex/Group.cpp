@@ -1,10 +1,11 @@
 #include "Group.h"
 
 
-Group::Group()
+Group::Group(Manager* mana)
 {
 	start = nullptr;
 	end = nullptr;
+	manager = mana;
 }
 
 
@@ -12,33 +13,34 @@ Group::~Group()
 {
 }
 
-Group::Group(Status* st, Status* ed)
+Group::Group(Manager* mana, Status* st, Status* ed)
 {
 	start = st;
 	end = ed;
+	manager = mana;
 }
 
 void Group::MakeCharSet(CharSet c)
 {
-	start = Manager::NewStatus();
-	end = Manager::NewFinalStatus();
-	Manager::AddCharEdge(start, end, c);
+	start = manager->NewStatus();
+	end = manager->NewFinalStatus();
+	manager->AddCharEdge(start, end, c);
 }
 
 void Group::Series(Group* g)
 {
 	end->setFinalStatus(false);
-	Manager::AddEdge(end, g->start);
+	manager->AddEdge(end, g->start);
 	end = g->end;
 }
 
 void Group::ReadyToParallel()
 {
-	Status* L = Manager::NewStatus();
-	Status* R = Manager::NewFinalStatus();
+	Status* L = manager->NewStatus();
+	Status* R = manager->NewFinalStatus();
 	end->setFinalStatus(false);
-	Manager::AddEdge(L, start);
-	Manager::AddEdge(end, R);
+	manager->AddEdge(L, start);
+	manager->AddEdge(end, R);
 	start = L;
 	end = R;
 }
@@ -46,36 +48,36 @@ void Group::ReadyToParallel()
 void Group::Parallel(Group* g)
 {
 	g->end->setFinalStatus(false);
-	Manager::AddEdge(start, g->start);
-	Manager::AddEdge(g->end, end);
+	manager->AddEdge(start, g->start);
+	manager->AddEdge(g->end, end);
 }
 
 void Group::Repeat(Group* g)
 {
 	g->end->setFinalStatus(false);
-	Manager::AddEdge(end, g->start);
-	Manager::AddEdge(g->end, end);
+	manager->AddEdge(end, g->start);
+	manager->AddEdge(g->end, end);
 }
 
 void Group::Optional(Group* g)
 {
 	end->setFinalStatus(false);
-	Manager::AddEdge(end, g->start);
-	Manager::AddEdge(g->start, g->end);
+	manager->AddEdge(end, g->start);
+	manager->AddEdge(g->start, g->end);
 	end = g->end;
 }
 
 void Group::SelfRepeat()
 {
-	Status* p = Manager::NewFinalStatus();
+	Status* p = manager->NewFinalStatus();
 	end->setFinalStatus(false);
-	Manager::AddEdge(p, start);
-	Manager::AddEdge(end, p);
+	manager->AddEdge(p, start);
+	manager->AddEdge(end, p);
 	start = p;
 	end = p;
 }
 
 void Group::SelfOptional()
 {
-	Manager::AddEdge(start, end);
+	manager->AddEdge(start, end);
 }

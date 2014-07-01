@@ -24,14 +24,16 @@ int main()
 	Epsilon eps;
 	DfaNodeManager mana;
 	NfaToDfa ntd;
-
+	Manager manager;
+	p.setManager(&manager);
 	p.ready(s);
 	Group* g = p.Parse();
 	
 	eps.ready(g);
+	eps.setManager(&manager);
 	eps.solve();
-	Manager::clearDel();
-	Manager::showAll();
+	manager.clearDel();
+	manager.showAll();
 	
 
 	ntd.setManager(&mana);

@@ -44,3 +44,12 @@ void DfaNodeManager::showAll()
 	}
 
 }
+
+void DfaNodeManager::clearAll()
+{
+	for (auto it = NodePool.begin(); it != NodePool.end(); it++)
+	{
+		delete (*it);
+	}
+	NodePool.clear();
+}

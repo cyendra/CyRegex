@@ -92,3 +92,8 @@ void NfaToDfa::solve()
 	}
 }
 
+void NfaToDfa::clearAll()
+{
+	D.clear();
+	while (!L.empty()) L.pop();
+}

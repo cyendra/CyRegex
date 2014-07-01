@@ -10,7 +10,9 @@ public:
 	Parser(std::string s);
 	~Parser();
 	void ready(std::string s);
+	void setManager(Manager* mana);
 	Group* Parse();
+	void clearAll();
 private:
 	std::string lex;
 	bool move();
@@ -22,5 +24,6 @@ private:
 	bool match(char c);
 	Group* newGroup();
 	std::vector<Group*> groupPool;
+	Manager* manager;
 };
 

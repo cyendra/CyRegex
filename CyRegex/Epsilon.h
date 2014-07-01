@@ -8,10 +8,13 @@ public:
 	Epsilon();
 	Epsilon(Group* p);
 	~Epsilon();
+	void setManager(Manager* mana);
 	void ready(Group* p);
 	void solve();
 	std::vector<Status*> effectStatus;
+	void clearAll();
 private:
+	Manager* manager;
 	void findEffect();
 	Group* g;
 	void getClose();

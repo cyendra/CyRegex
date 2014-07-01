@@ -5,8 +5,8 @@
 class Group
 {
 public:
-	Group();
-	Group(Status* st, Status* ed);
+	Group(Manager* mana);
+	Group(Manager* mana, Status* st, Status* ed);
 	~Group();
 	void MakeCharSet(CharSet c);
 	void Series(Group* g);
@@ -18,5 +18,7 @@ public:
 	void SelfOptional();
 	Status* start;
 	Status* end;
+private:
+	Manager* manager;
 };
 

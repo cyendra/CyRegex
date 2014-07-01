@@ -113,7 +113,21 @@ bool Parser::match(char c)
 
 Group* Parser::newGroup()
 {
-	Group* g = new Group();
+	Group* g = new Group(manager);
 	groupPool.push_back(g);
 	return g;
+}
+
+void Parser::setManager(Manager* mana)
+{
+	manager = mana;
+}
+
+void Parser::clearAll()
+{
+	for (auto it = groupPool.begin(); it != groupPool.end(); it++)
+	{
+		delete (*it);
+	}
+	groupPool.clear();
 }

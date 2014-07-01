@@ -19,5 +19,7 @@ public:
 
 	DfaNode* root;
 	DfaNodeManager* manager;
+
+	void clearAll();
 };
 

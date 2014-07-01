@@ -1,11 +1,15 @@
 #include "Manager.h"
 
 
-// 状态结点池
-std::vector<Status*> Manager::statusPool;
+Manager::Manager()
+{
 
-// 边结点池
-std::vector<Edge*> Manager::edgePool;
+}
+
+Manager::~Manager()
+{
+
+}
 
 //-------------------------------------------------------------------------
 //		新建结点的 new 系列
