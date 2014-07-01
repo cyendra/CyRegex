@@ -6,8 +6,10 @@
 class Parser
 {
 public:
+	Parser();
 	Parser(std::string s);
 	~Parser();
+	void ready(std::string s);
 	Group* Parse();
 private:
 	std::string lex;

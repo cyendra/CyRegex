@@ -3,11 +3,19 @@
 
 Parser::Parser(std::string s)
 {
+	ready(s);
+}
+Parser::Parser()
+{
+
+}
+
+void Parser::ready(std::string s)
+{
 	lex = s;
 	pos = 0;
 	move();
 }
-
 
 Parser::~Parser()
 {

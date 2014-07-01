@@ -30,3 +30,17 @@ DfaNode* DfaNodeManager::addEdge(DfaNode* s, DfaNode* e, int c)
 	return e;
 }
 
+void DfaNodeManager::showAll()
+{
+	for (auto it = NodePool.begin(); it != NodePool.end(); it++)
+	{
+		std::cout<< "------- U :" << (*it)->getIdx() << "final = " << (*it)->finalStatus << std::endl;
+		for (int i = 0; i < 256; i++)
+		{
+			auto t = (*it)->next[i];
+			if (t != nullptr) std::cout << t->getIdx() << " ";
+		}
+		std::cout << std::endl;
+	}
+
+}

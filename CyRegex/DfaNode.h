@@ -8,5 +8,9 @@ public:
 	DfaNode* next[256];
 	bool finalStatus;
 	void addEdge(int c, DfaNode* d);
+	int getIdx();
+private:
+	int idx;
+	static int NodeNumber;
 };
 

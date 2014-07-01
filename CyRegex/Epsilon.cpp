@@ -1,7 +1,16 @@
 #include "Epsilon.h"
 
+Epsilon::Epsilon()
+{
+
+}
 
 Epsilon::Epsilon(Group* p)
+{
+	ready(p);
+}
+
+void Epsilon::ready(Group* p)
 {
 	g = p;
 }
@@ -18,7 +27,7 @@ void Epsilon::solve()
 	getClose();
 	for (int i = 0; i < (int)ans.size(); i++)
 	{
-		std::cout << ans[i].first->getIdx() << " " << ans[i].second->getIdx() << std::endl;
+		//std::cout << ans[i].first->getIdx() << " " << ans[i].second->getIdx() << std::endl;
 		Manager::AddCharEdge(ans[i].first, ans[i].second, vchr[i]);
 	}
 }

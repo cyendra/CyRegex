@@ -5,8 +5,10 @@
 class Epsilon
 {
 public:
+	Epsilon();
 	Epsilon(Group* p);
 	~Epsilon();
+	void ready(Group* p);
 	void solve();
 	std::vector<Status*> effectStatus;
 private:

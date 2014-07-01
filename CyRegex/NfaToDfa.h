@@ -6,8 +6,11 @@
 class NfaToDfa
 {
 public:
+	NfaToDfa();
 	NfaToDfa(DfaNodeManager* mana);
 	~NfaToDfa();
+
+	void setManager(DfaNodeManager* mana);
 
 	void ready(Status* s);
 	void solve();

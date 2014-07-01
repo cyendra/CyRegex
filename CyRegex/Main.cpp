@@ -3,19 +3,42 @@
 #include "Parser.h"
 #include "Epsilon.h"
 #include "std.h"
+#include "NfaToDfa.h"
+#include "DfaNodeManager.h"
+
+void test()
+{
+	std::set<int>st;
+	st.insert(1);
+	st.insert(1);
+	st.insert(1);
+	std::cout << st.size() << std::endl;
+
+}
+
 int main()
 {
-	//Parser p("(ab|cd)*");
-	Parser p("abc(a|b|c)*cba");
+
+	std::string s = "abc(a|b|c)*cba";
+	Parser p;
+	Epsilon eps;
+	DfaNodeManager mana;
+	NfaToDfa ntd;
+
+	p.ready(s);
 	Group* g = p.Parse();
-	Manager::showAll();
-	Epsilon eps(g);
+	
+	eps.ready(g);
 	eps.solve();
-	//Manager::clearNotEffect(g->start);
-	//Manager::clearEmpty();
-	Manager::showAll();
 	Manager::clearDel();
 	Manager::showAll();
+	
+
+	ntd.setManager(&mana);
+	ntd.ready(g->start);
+	ntd.solve();
+	mana.showAll();
+
 	getchar();
 	
 }
