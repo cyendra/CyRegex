@@ -123,3 +123,13 @@ void Status::clearNullEdge()
 	}
 	OutEdges = v;
 }
+
+void Status::reset()
+{
+	StatusNumber = 0;
+}
+
+void Edge::reset()
+{
+	EdgeNumber = 0;
+}

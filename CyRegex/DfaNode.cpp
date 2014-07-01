@@ -27,3 +27,8 @@ int DfaNode::getIdx()
 {
 	return idx;
 }
+
+void DfaNode::reset()
+{
+	NodeNumber = 0;
+}

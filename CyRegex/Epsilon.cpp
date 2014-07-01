@@ -143,4 +143,5 @@ void Epsilon::clearAll()
 {
 	ans.clear();
 	vchr.clear();
+	effectStatus.clear();
 }

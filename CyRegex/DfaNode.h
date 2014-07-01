@@ -9,6 +9,7 @@ public:
 	bool finalStatus;
 	void addEdge(int c, DfaNode* d);
 	int getIdx();
+	static void reset();
 private:
 	int idx;
 	static int NodeNumber;

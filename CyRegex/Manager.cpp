@@ -110,7 +110,7 @@ void Manager::showAll()
 	std::cout << "***** Edge *****" << std::endl;
 	for (auto it = edgePool.begin(); it != edgePool.end(); it++)
 	{
-		std::cout << (*it)->getIdx() << " Char: " << (*it)->MatchContent.getText() << ", Start: " << (*it)->Start->getIdx() << ", End:" << (*it)->End->getIdx() << " del = " << (*it)->del << std::endl;
+		std::cout << (*it)->getIdx() << " Char: " << (char)(*it)->MatchContent.getText() << ", Start: " << (*it)->Start->getIdx() << ", End:" << (*it)->End->getIdx() << " del = " << (*it)->del << std::endl;
 	}
 }
 

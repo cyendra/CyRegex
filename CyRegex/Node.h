@@ -24,6 +24,7 @@ public:
 	bool effect;
 	void clearNullEdge();
 	bool del;
+	static void reset();
 private:
 	static int StatusNumber;
 	int idx;
@@ -43,6 +44,7 @@ public:
 	int getIdx();
 	bool isEmpty();
 	bool del;
+	static void reset();
 private:
 	int idx;
 	static int EdgeNumber;
