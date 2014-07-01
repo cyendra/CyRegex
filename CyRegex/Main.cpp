@@ -17,10 +17,12 @@ int main()
 	std::string s = "abc(a|b|c)*cba";
 	Regex r;
 	r.match(s);
-	std::cout << "000000000000000" << std::endl;
+	r.go("abccccaa--abcabccba");
+	r.showAns();
+	std::cout << "--------------" << std::endl;
 	r.match("a|bc");
-
-
+	r.go("rrrrrrrbcaaa");
+	r.showAns();
 	getchar();
 	
 }
