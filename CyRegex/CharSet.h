@@ -15,6 +15,7 @@ public:
 	static CharSet EndOfFile;
 	bool isEof();
 	bool isEmpty();
+	int getCharIdx();
 private:
 	char chr;
 	bool sp;

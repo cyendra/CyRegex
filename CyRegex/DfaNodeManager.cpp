@@ -23,3 +23,10 @@ DfaNode* DfaNodeManager::addEdge(DfaNode* s, int c)
 	s->addEdge(c, p);
 	return p;
 }
+
+DfaNode* DfaNodeManager::addEdge(DfaNode* s, DfaNode* e, int c)
+{
+	s->addEdge(c, e);
+	return e;
+}
+

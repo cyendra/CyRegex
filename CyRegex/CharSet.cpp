@@ -82,3 +82,8 @@ bool CharSet::isEmpty()
 {
 	return chr == 0;
 }
+
+int CharSet::getCharIdx()
+{
+	return (int)chr;
+}

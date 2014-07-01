@@ -9,6 +9,7 @@ public:
 	~DfaNodeManager();
 	DfaNode* newDfaNode();
 	DfaNode* addEdge(DfaNode* s, int c);
+	DfaNode* addEdge(DfaNode* s, DfaNode* e, int c);
 	std::vector<DfaNode*> NodePool;
 };
 
