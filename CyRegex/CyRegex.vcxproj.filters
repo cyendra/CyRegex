@@ -39,6 +39,18 @@
     <ClInclude Include="Epsilon.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="DFA.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="NfaToDfa.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="DfaNode.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="DfaNodeManager.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -63,6 +75,18 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="Epsilon.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="DFA.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="NfaToDfa.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="DfaNode.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="DfaNodeManager.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

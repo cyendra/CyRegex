@@ -65,10 +65,14 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Action.h" />
+    <ClInclude Include="DFA.h" />
+    <ClInclude Include="DfaNode.h" />
+    <ClInclude Include="DfaNodeManager.h" />
     <ClInclude Include="Epsilon.h" />
     <ClInclude Include="Manager.h" />
     <ClInclude Include="CharSet.h" />
     <ClInclude Include="Group.h" />
+    <ClInclude Include="NfaToDfa.h" />
     <ClInclude Include="Node.h" />
     <ClInclude Include="Parser.h" />
     <ClInclude Include="std.h" />
@@ -76,10 +80,14 @@
   <ItemGroup>
     <ClCompile Include="Action.cpp" />
     <ClCompile Include="CharSet.cpp" />
+    <ClCompile Include="DFA.cpp" />
+    <ClCompile Include="DfaNode.cpp" />
+    <ClCompile Include="DfaNodeManager.cpp" />
     <ClCompile Include="Epsilon.cpp" />
     <ClCompile Include="Group.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Manager.cpp" />
+    <ClCompile Include="NfaToDfa.cpp" />
     <ClCompile Include="Node.cpp" />
     <ClCompile Include="Parser.cpp" />
   </ItemGroup>

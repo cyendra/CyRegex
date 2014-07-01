@@ -5,7 +5,8 @@
 #include "std.h"
 int main()
 {
-	Parser p("(ab|cd)*");
+	//Parser p("(ab|cd)*");
+	Parser p("abc(a|b|c)*cba");
 	Group* g = p.Parse();
 	Manager::showAll();
 	Epsilon eps(g);
